@@ -1,0 +1,46 @@
+@charset "UTF-8";
+@charset "UTF-8";
+
+body {
+	font-family: "M PLUS Rounded 1c", sans-serif;
+	background-color: #98fb98;
+	text-align: center;
+}
+
+h1 {
+	font-size: 32px;
+	color: green;
+}
+
+h2 {
+	font-size: 28px;
+	background-color: green;
+	color: white;
+	padding-top: 6px;
+	padding-bottom: 6px;
+}
+
+/* 通常のボタン */
+.btn {
+	border: 2px solid rgb(6, 121, 117);
+	padding: 4px 20px;
+	font-size: 20px;
+	color: rgb(6, 121, 105);
+	cursor: pointer;
+	border-radius: 10%;
+}
+
+.btn:hover {
+	color: #fff;
+	background: rgb(6, 121, 95);
+	border-radius: 10%;
+}
+
+input{
+	border-radius: 6px;
+}
+
+/* コメント入力の幅 */
+input.comment {
+	width: 400px;
+}

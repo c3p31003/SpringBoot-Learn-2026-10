@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>レビュー登録</title>
+	<!-- Google Fontsの読み込みタグを追加 -->
+	<link href="https://fonts.googleapis.com/css?family=M+PLUS+Rounded+1c" rel="stylesheet">
+	<!-- CSSファイルの読み込み -->
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+	<link rel="stylesheet" th:href="@{/css/style.css}">
+</head>
+
+<body>
+
+	<h2>レビュー登録</h2>
+	
+	<!--th:actionは送り先の指定。URLパターン/regist-reiviewを指定している-->
+	<!--th:object属性は${Model内の属性名}でオブジェクトを指定している。-->
+	<form th:action="@{/regist-review}" th:object="${reviewRegistForm}" method="POST">
+		【店舗ID】<br>
+		<!--th:field="*{フィールド名}"の形でそのオブジェクトのフィールドを参照している-->
+		<input type="text"th:field="*{restaurantId}"><br>
+		<br>
+		【利用者ID】<br>
+		<input type="text" th:field="*{userId}"><br>
+		<br>
+		【来店日】<br>
+		<input type="date" th:field="*{visitDate}"><br>
+		<br>
+		【評価】(1-5)<br>
+		<input type="text" th:field="*{rating}"><br>
+		<br>
+		【一言コメント】<br>
+		<input type="text" th:field="*{comment}" class="comment"><br>
+		<br>
+		<input type="submit" value="登録" class="btn">
+	</form>
+
+</body>
+
+</html>

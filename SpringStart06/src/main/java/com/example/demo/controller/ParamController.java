@@ -8,12 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class ParamController {
 
-
-	//public String getParam(@RequestParam("greeting") String mGreeting, Model model) {
-	//public String getParam(@RequestParam(name="g") String greeting, Model model) {
 	@GetMapping("/get-param")
-	public String getParam(@RequestParam(required=false) String greeting, Model model){
-		model.addAttribute("greeting", greeting);
+	public String getParam(@RequestParam("g") String mGreeting, Model model) {
+	//public String getParam(@RequestParam(name="g") String greeting, Model model) {
+
+	//public String getParam(@RequestParam(required=false) String greeting, Model model){
+		model.addAttribute("greeting", mGreeting);
 		return "display";
 	}
 }
