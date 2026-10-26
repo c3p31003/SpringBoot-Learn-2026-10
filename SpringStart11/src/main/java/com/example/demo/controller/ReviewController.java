@@ -9,10 +9,23 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.form.ReviewRegistForm;
+import com.example.demo.service.RegistService;
+
+import lombok.RequiredArgsConstructor;
 
 //↓コントローラーであることを示すアノテーション
 @Controller
+@RequiredArgsConstructor
 public class ReviewController {
+	
+	private final RegistService service;
+
+	//@Autowired
+//	public ReviewController(RegistService service) {
+//		this.service = service;
+//	}
+
+
 
 	//レビュー画面表示リクエスト
 	@GetMapping("/show-review-form")
@@ -43,7 +56,11 @@ public class ReviewController {
 	@PostMapping("/confirm-regist-review")
 	public String confirmRegistReview(@Validated ReviewRegistForm form, BindingResult result, Model model) {
 		//ここでform内容でDB登録処理を行う
-		model.addAttribute("msg", "レビュー登録が完了しました。");
+		
+		//RegistService service = new RegistServiceMock();
+		String msg = service.regist();
+		
+		model.addAttribute("msg", msg);
 		if(result.hasErrors()) {
 			return "regist-review";
 		}
